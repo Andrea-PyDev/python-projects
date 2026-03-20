@@ -1,0 +1,61 @@
+creare nuovo ambiente virtuale
+python -m venv venv
+
+
+Attivare ambiente virtuale:
+venv\Scripts\Activate.ps1 - SU POWERSHELL
+venv\Scripts\activate.bat - COMMAND PROMPT
+
+Verificare ambiente giusto
+--version pip list
+
+pip install requests Installa la libreria requests
+pip install requests==2.28.0 Installa una versione specifica
+pip install requests>=2.28 Installa versione >= 2.28
+pip uninstall requests Rimuove la libreria
+pip list Mostra tutte le librerie installate
+pip show requests Dettagli su una libreria specifica
+pip install --upgrade requests Aggiorna alla versione piu' recente
+pip freeze Lista librerie nel formato requirements.txt
+
+
+
+python -m pip VERSIONE 3.14 in modo tale da scaricare la libreria nell'ambiente virtuale richiesto
+
+
+requirements.txt -- è il formato di testo che spiega all'utente successivo che vuole utilizzare il codice o altro
+di cosa ha bisogno
+pip freeze requirements.txt è il comando che viene utilizzato per creare il File
+in modo automatico
+
+INSTALLA IN AUTOMATICO LEGGENDO il FILE  -- pip install -r requirements.txt
+
+
+COMMAND CMD TERMINAL
+
+pwd    Mostra cartella corrente pwd -> /home/andrea
+ls     Lista file e cartelle ls -> file1.py file2.py
+ls -la     Lista dettagliata con file nascosti ls -la
+cd nome    Entra in una cartella cd Desktop
+cd ..    Torna alla cartella precedente cd ..
+cd ~     Vai alla home dell'utente cd ~
+mkdir nome      Crea una nuova cartella mkdir mio_progetto
+touch file      Crea un file vuoto touch app.py
+rm file      Elimina un file rm vecchio.py
+rm -rf      cartella Elimina cartella e contenuto rm -rf __pycache__
+cp file dest      Copia un file cp app.py backup.py
+mv file dest      Sposta o rinomina un file mv app.py main.py
+cat file      Mostra il contenuto di un file cat requirements.txt
+clear      Pulisce il terminale clear
+4.3
+
+
+
+
+Modifichi il codice
+    ↓
+git add — dici a Git quali file vuoi salvare
+    ↓
+git commit — scatti la fotografia con un messaggio
+    ↓
+git push — carichi tutto su GitHub

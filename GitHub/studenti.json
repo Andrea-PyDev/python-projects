@@ -1,0 +1,29 @@
+[
+    {
+        "nome": "Andrea",
+        "età": 32,
+        "città": "Caserta",
+        "voti": {
+            "Python": 9,
+            "SQL": 8
+        }
+    },
+    {
+        "nome": "Mario",
+        "età": 25,
+        "città": "Napoli",
+        "voti": {
+            "Python": 7,
+            "SQL": 6
+        }
+    },
+    {
+        "nome": "Sara",
+        "età": 22,
+        "città": "Milano",
+        "voti": {
+            "Python": 10,
+            "SQL": 9
+        }
+    }
+]

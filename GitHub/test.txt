@@ -1,0 +1,3 @@
+python è un linguaggio di programmazione
+Python è facile da imparare
+Mi piace programmare in Python
