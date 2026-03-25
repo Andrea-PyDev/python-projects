@@ -19,31 +19,21 @@ def storico():
             print(contenuto)
     except FileNotFoundError:
         print("Nessun studente inserito")
-#Totale presenze per studente
-def presenze():
+
+#Analisi stato dello studente
+def conta_stato(stato):
     try:
         nome = input("Di quale studente vuoi vedere le presenze?").lower()
-        presenze = 0
+        contatore_stato = 0
         with open(NOME_FILE,"r") as file:
             for riga in file:
-                if nome in riga and "presente" in riga:
-                    presenze += 1
-            print(f"{nome} è stato presente {presenze} volta/e. ")
+                if nome in riga and stato in riga:
+                    contatore_stato += 1
+            print(f"{nome} è stato {stato} {contatore_stato} volta/e. ")
     except FileNotFoundError:
         print("Il file non esiste")
 
-#Totale assenze per studente
-def assenze():
-    try: 
-        nome = input("Di quale studente vuoi vedere le assenze?").lower()
-        assenze = 0 
-        with open(NOME_FILE,"r") as file:
-            for riga in file:
-                if nome in riga and "assente" in riga:
-                    assenze += 1
-            print(f"{nome} è stato assente {assenze} volta/e. ")
-    except FileNotFoundError:
-        print("Il file non esiste")
+
 
 def menu():
 
@@ -60,9 +50,9 @@ def menu():
             elif scelta == "2":
                 storico()
             elif scelta == "3":
-                presenze()
+                conta_stato("presente")
             elif scelta == "4":
-                assenze()
+                conta_stato("assente")
             elif scelta == "5":
                 print("Arrivederci")
                 break
