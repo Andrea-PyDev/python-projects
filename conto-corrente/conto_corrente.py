@@ -5,9 +5,12 @@ class ContoCorrente:
         self.storico = []
         self.saldo_minimo = saldo_minimo
 
-    def deposita(self,importo):
-         self.saldo += importo
-         self.storico.append(f"Deposito: + {importo}€ | Saldo: {self.saldo}€")
+    def deposita(self, importo):
+        if importo <= 0:
+            print("L'importo deve essere positivo")
+            return
+        self.saldo += importo
+        self.storico.append(f"Deposito: + {importo}€ | Saldo: {self.saldo}€")
 
 
     def preleva(self,importo):
@@ -36,15 +39,15 @@ class ContoCorrente:
     def __str__(self):
         return f"Conto di {self.intestatario}: {self.saldo}€ (minimo: {self.saldo_minimo}€)"
 
-        
-conto1 = ContoCorrente("Andrea", 1000)
-conto2 = ContoCorrente("Frank", 500)
+if __name__ == "__main__":      
+    conto1 = ContoCorrente("Andrea", 1000)
+    conto2 = ContoCorrente("Frank", 500)
 
-conto1.imposta_saldo_minimo(100)
-conto1.deposita(500)
-conto1.preleva(200)
-conto1.trasferisci(300, conto2)
+    conto1.imposta_saldo_minimo(100)
+    conto1.deposita(500)
+    conto1.preleva(200)
+    conto1.trasferisci(300, conto2)
 
-conto1.mostra_storico()
-print(conto1)
-print(conto2)
+    conto1.mostra_storico()
+    print(conto1)
+    print(conto2)
