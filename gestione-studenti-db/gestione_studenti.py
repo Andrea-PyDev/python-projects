@@ -35,9 +35,9 @@ def mostra_studenti():
 def cerca_studente():
     nome_studente = input("Inserisci il nome dello studente: ")
     cursore.execute("SELECT * FROM studenti WHERE nome = ?",(nome_studente,))
-    cerca_studente = cursore.fetchone()
-    if cerca_studente:
-        print(f"ID|{cerca_studente[0]}| Nome - {cerca_studente[1]}| Età - {cerca_studente[2]}| Città - {cerca_studente[3]}| Voto {cerca_studente[4]}.")
+    risultato = cursore.fetchone()
+    if risultato:
+        print(f"ID|{risultato[0]}| Nome - {risultato[1]}| Età - {risultato[2]}| Città - {risultato[3]}| Voto {risultato[4]}.")
     else:
         print("Studente non trovato!")
         
@@ -69,9 +69,9 @@ def menu():
                     Scelta '1' - Aggiungi Studente
                     Scelta '2' - Mostri gli Studenti
                     Scelta '3' - Cerca uno Studente
-                    Scelta '4' Aggiorna Voto dello Studente
-                    Scelta '5' Elimina uno Studente
-                    Scelta '6' Esci dal programma..
+                    Scelta '4' - Aggiorna Voto dello Studente
+                    Scelta '5' - Elimina uno Studente
+                    Scelta '6' - Esci dal programma..
                                                    \n""") 
         if scelta == "1":
             aggiungi_studente()
@@ -85,6 +85,7 @@ def menu():
             elimina_studente()
         elif scelta == "6":
             print("Programma in uscita, arrivederci!")
+            connessione.close()
             break
         else:
             print("Errore nella selezione della scelta, si prega di riprovare")

@@ -24,32 +24,36 @@ def mostra_contatto():
     with open("rubrica.json","r",encoding="utf-8") as file:
         contatti = json.load(file)
         for riga in contatti:
-            print(f"Nome: {riga["Nome"]}| Telefono: {riga["Telefono"]} | Email: {riga["Email"]}")
+            print(f"Nome: {riga['Nome']}| Telefono: {riga['Telefono']} | Email: {riga['Email']}")
                   
 
 #cerca un contatto
 def cerca_contatto():
     with open("rubrica.json","r",encoding="utf-8") as file:
         contatti = json.load(file)
-        utente = input("Inserisci il nome nella barra di ricerca: ").lower()
-        for riga in contatti:
-            if utente == riga["Nome"].lower():
-                print(f"Nome: {riga["Nome"]}| Telefono: {riga["Telefono"]} | Email: {riga["Email"]}")
-                break
-        else:
-            print("Utente non trovato")
+    utente = input("Inserisci il nome nella barra di ricerca: ").lower()
+    trovato = False
+    for riga in contatti:
+        if utente == riga["Nome"].lower():
+            print(f"Nome: {riga['Nome']}| Telefono: {riga['Telefono']} | Email: {riga['Email']}")
+            trovato = True
+            break
+    if not trovato:
+        print("Utente non trovato")
 
 #elimina contatto
 
 def elimina_contatto():
     with open("rubrica.json","r",encoding="utf-8") as file:
         contatti = json.load(file)
-    elimina_contatto = input("Quale contatto vuoi eliminare?")
+    nome_da_eliminare = input("Quale contatto vuoi eliminare?")
+    trovato = False
     for riga in contatti:
-        if elimina_contatto == riga["Nome"]:
+        if nome_da_eliminare == riga["Nome"]:
             contatti.remove(riga)
+            trovato = True
             break
-    else:
+    if not trovato:
         print("Contatto non trovato")
     with open("rubrica.json","w", encoding="utf-8") as file:
         json.dump(contatti,file,indent=4,ensure_ascii=False)
