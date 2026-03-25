@@ -1,7 +1,8 @@
 from datetime import date
+import os
 
 def scrivi_note():
-    nota = input("Cosa hai studiato oggi?")
+    nota = input("Cosa hai studiato oggi? ")
     oggi = date.today()
 
     with open("diario.txt", "a") as file:
@@ -22,8 +23,11 @@ def leggi_diario():
         print("Nessun diario trovato, Scrivi la prima nota!")
 
 def cancella_note():
-    with open("diario.txt", "w") as file:
+    try:
+        os.remove("diario.txt")
         print("Note cancellate")
+    except FileNotFoundError:
+        print("Il file non esiste")
 
 
 def menu():
@@ -51,4 +55,6 @@ def menu():
         else:
             print("Scelta non valida")
 
-menu()
+
+if __name__ == "__main__":
+    menu()

@@ -1,43 +1,49 @@
 from datetime import date
 
 
-
+NOME_FILE = "registro_studenti.txt"
 #Aggiungi studente e segna presenza/assenza
 def studente():
     nome = input("Inserisci nome e cognome studente: ").lower()
     presenza_assenza = input("Lo studente è 'presente' o 'assente'? ").lower()
     oggi = date.today()
-    with open("Registrodeglistudenti.txt","a") as file:
+    with open(NOME_FILE,"a") as file:
         file.write(f"{oggi}:Studente: {nome} è {presenza_assenza}\n")
     return nome, presenza_assenza
 
 #Vedi storico
 def storico():
     try:
-        with open("registrodeglistudenti.txt","r") as file:
+        with open(NOME_FILE,"r") as file:
             contenuto = file.read()
             print(contenuto)
     except FileNotFoundError:
         print("Nessun studente inserito")
 #Totale presenze per studente
 def presenze():
-    nome = input("Di quale studente vuoi vedere le presenze?").lower()
-    presenze = 0
-    with open("registrodeglistudenti.txt","r") as file:
-        for riga in file:
-            if nome in riga and "presente" in riga:
-                presenze += 1
-        print(f"{nome} è stato presente {presenze} volta/e. ")
+    try:
+        nome = input("Di quale studente vuoi vedere le presenze?").lower()
+        presenze = 0
+        with open(NOME_FILE,"r") as file:
+            for riga in file:
+                if nome in riga and "presente" in riga:
+                    presenze += 1
+            print(f"{nome} è stato presente {presenze} volta/e. ")
+    except FileNotFoundError:
+        print("Il file non esiste")
 
 #Totale assenze per studente
 def assenze():
-    nome = input("Di quale studente vuoi vedere le assenze?").lower()
-    assenze = 0 
-    with open("registrodeglistudenti.txt","r") as file:
-        for riga in file:
-            if nome in riga and "assente" in riga:
-                assenze += 1
-        print(f"{nome} è stato assente {assenze} volta/e. ")
+    try: 
+        nome = input("Di quale studente vuoi vedere le assenze?").lower()
+        assenze = 0 
+        with open(NOME_FILE,"r") as file:
+            for riga in file:
+                if nome in riga and "assente" in riga:
+                    assenze += 1
+            print(f"{nome} è stato assente {assenze} volta/e. ")
+    except FileNotFoundError:
+        print("Il file non esiste")
 
 def menu():
 
@@ -63,7 +69,9 @@ def menu():
             else:
                 print("Errore")
 
-menu()
+
+if __name__ == "__main__":
+    menu()
 
 
 
