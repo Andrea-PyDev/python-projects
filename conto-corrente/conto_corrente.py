@@ -16,9 +16,11 @@ class ContoCorrente:
     def preleva(self,importo):
         if self.saldo - importo  < self.saldo_minimo:
             print("Saldo insufficiente")
+            return False
         else:
             self.saldo -= importo
             self.storico.append(f"Prelievo: -{importo}€ | Saldo: {self.saldo}€")
+            return True
 
 
     def imposta_saldo_minimo(self,importo):
@@ -30,10 +32,7 @@ class ContoCorrente:
 
 
     def trasferisci(self, importo, altro_conto):
-        if self.saldo - importo < self.saldo_minimo:
-            print("Saldo insufficiente per il trasferimento")
-        else:
-            self.preleva(importo)
+        if self.preleva(importo):
             altro_conto.deposita(importo)
 
     def __str__(self):

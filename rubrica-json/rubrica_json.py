@@ -81,8 +81,8 @@ def menu():
         else:
             print("Opzione non valida..riprovare")
             continue
-
-menu()
+if __name__ == "__main__":
+    menu()
 
     
 

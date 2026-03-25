@@ -36,5 +36,5 @@ def menu():
      salvataggio_file(città, temperatura, descrizione, umidità)
      print(storico_dati())
      
-
-menu()
+if __name__ == "__main__":
+    menu()

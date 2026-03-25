@@ -91,5 +91,5 @@ def menu():
             print("Errore nella selezione della scelta, si prega di riprovare")
             continue
 
-
-menu()
+if __name__ == "__main__":
+    menu()

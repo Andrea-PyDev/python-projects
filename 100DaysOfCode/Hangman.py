@@ -33,31 +33,3 @@ while True:
     if "".join(display) == scelta_parola:
         print("Hai vinto")
         break
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
